@@ -4,7 +4,7 @@
 //     document.getElementById("output").innerHTML = "hi friend!";
 // }
 
-class Exercise 
+class Exercise {
     constructor(time, intensity, bodypart, materials, location, calories){
         this.time = time;
         this.intensity = intensity;
@@ -13,6 +13,7 @@ class Exercise
         this.location = location;
         this.calories = calories;
     }
+}
 
     //functions?
     let squats = {
