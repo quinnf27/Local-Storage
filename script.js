@@ -1,111 +1,64 @@
-// document.getElementById("button").addEventListener("click",myFunc);
+let exercises = [
+        { name: "Squats", time: 10, intensity: "medium", body: "legs", equipment: "none", location: "indoor", calories: },
+        { name: "Running", time: 60, intensity: "high", body: "legs", equipment: "none", location: "outdoor", calories: },
+        { name: "Lunges", time: 10, intensity: "medium", body: "legs", equipment: "none", location: "indoor", calories: },
+        { name: "Calf Raises", time: 5, intensity: "low", body: "legs", equipment: "none", location: "indoor", calories: },
+        { name: "Jump Squats", time: 10, intensity: "high", body: "legs", equipment: "none", location: "indoor", calories: },
+        { name: "Jumping Jacks", time: 10, intensity: "low", body: "core", equipment: "none", location: "indoor", calories: },
+        { name: "Hike", time: 40, intensity: "medium", body: "legs", equipment: "none", location: "outdoor", calories: },
+        { name: "Bicep Curls", time: 20, intensity: "medium", body: "arms", equipment: "weights", location: "indoor", calories: },
+        { name: "Plank", time: 5, intensity: "high", body: "arms", equipment: "yoga mat", location: "indoor", calories: },
+        { name: "Sit-ups", time: 20, intensity: "high", body: "core", equipment: "yoga mat", location: "indoor", calories: }
+    ];
 
-// function myFunc(){
-//     document.getElementById("output").innerHTML = "hi friend!";
-// }
+    let completedWorkouts = JSON.parse(localStorage.getItem("workouts"))
+    let weeklyGoal = localStorage.getItem("goal") || 0;
 
-class Exercise {
-    constructor(time, intensity, bodypart, materials, location, calories){
-        this.time = time;
-        this.intensity = intensity;
-        this.bodypart = bodypart;
-        this.materials = materials;
-        this.location = location;
-        this.calories = calories;
+    document.getElementById("workoutForm").addEventListener("submit", function(e)){
+        e.preventDefault();
+
+        let userTime = parseInt(document.getElementById("time").value);
+        let userIntensity = document.getElementById("intensity").value;
+        let userBody = document.getElementById("body").value;
+        let userEquipment = document.getElementById("equipment").value;
+        let userLocation = document.getElementById("location").value;
+
+        let matches = exercises.map(exercise =>{
+            let score = 0;
+
+            if(exercise.time <= userTime) score++;
+            if(exercise.intensity === userIntensity) score++;
+            if(exercise.body === userBody) score++;
+            if(exercise.equipment === userEquipment) score++;
+            if(exercise.location === userLocation) score++;
+            
+            return {exercise, score};
+        });
+
+        function displayResults(list){
+            let results = document.getElementById("results";
+            results.innerHTML = "";
+
+
+            )
+        });
+
+        function updateWeeklySummary(){
+            let totalMinutes = completedWorkouts
+            document.getElementById("weeklySummary")
+
+            document.getElementById("goalStatus")
+
+            document.getElementById("setGoal").addEventListener("click", function() {
+                weeklyGoal = parseInt(document.getElementById("goalInput").value);
+                localStorage.setItem("goal", weeklyGoal);
+                updateWeeklySummary();
+            });
+        });
+
+        updateWeeklySummary();
+
     }
-}
-
-    //functions?
-    let squats = {
-        time = "10 minutes";
-        intensity = "medium";
-        bodypart = "";
-        materials ="";
-        location = "Inside";
-        calories = "";
-    }
-
-    let run = {
-        time = "30 minutes";
-        intensity = "high";
-        bodypart = "legs";
-        materials = "";
-        location = "Outside";
-        calories = "";
-    }
-
-    let lunges = {
-        time = "10 minutes";
-        intensity = "medium";
-        bodypart = "legs";
-        materials = "";
-        location = "Inside";
-        calories = "";
-    }
-
-    let calf raises = {
-        time = "5 minutes";
-        intensity = "low";
-        bodypart = "legs";
-        materials ="";
-        location = "Inside";
-        calories = "";
-    }
-
-    let jumpsquats = {
-        time = "10 minutes";
-        intensity = "high";
-        bodypart = "legs";
-        materials ="";
-        location = "Inside";
-        calories = "";
-    }
-
-    let jumping jacks = {
-        time = "10 minutes";
-        intensity = "low";
-        bodypart = "core";
-        materials ="";
-        location = "Inside";
-        calories = "";
-    }
-
-    let hike = {
-        time = "1 hour";
-        intensity = "low";
-        bodypart = "legs";
-        materials ="";
-        location = "Outside";
-        calories = "";
-    }
-
-    let  = {
-        time = "10 minutes";
-        intensity = "";
-        bodypart = "";
-        materials ="";
-        location = "Inside";
-        calories = "";
-    }
-
-    let  = {
-        time = "10 minutes";
-        intensity = "";
-        bodypart = "";
-        materials ="";
-        location = "Inside";
-        calories = "";
-    }
-
-    let  = {
-        time = "10 minutes";
-        intensity = "";
-        bodypart = "";
-        materials ="";
-        location = "Inside";
-        calories = "";
-    }
-
 
 /*
 
