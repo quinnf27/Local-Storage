@@ -2,55 +2,58 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>WorkoutGenerator</title>
-  </head>
-  <body>
+<head>
+  <title>Workout Generator</title>
+</head>
+<body>
 
-    <h1>Workout Generator</h1>
+<h1>Workout Generator</h1>
 
-    <form id="workoutForm">
-      <label>Time (minutes):</label>
-      <input type="number" id="time" required><br><br>
+<form id="workoutForm">
+  <label>Time (minutes):</label>
+  <input type="number" id="time" required><br><br>
 
-      <label>Intensity:</label>
-      <select id="intensity">
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
-      </select><br><br>
+  <label>Intensity:</label>
+  <select id="intensity">
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+  </select><br><br>
 
-      <label>Body Area:</label>
-      <select id="body">
-        <option value="legs">Legs</option>
-        <option value="arms">Arms</option>
-        <option value="core">Core</option>
-      </select><br><br>
+  <label>Body Area:</label>
+  <select id="body">
+    <option value="legs">Legs</option>
+    <option value="arms">Arms</option>
+    <option value="core">Core</option>
+  </select><br><br>
 
-      <label>Equipment:</label>
-      <select id="equipment">
-        <option value="none">None</option>
-        <option value="weights">Weights</option>
-        <option value="yoga mat">Yoga Mat</option>
-      </select><br><br>
+  <label>Equipment:</label>
+  <select id="equipment">
+    <option value="none">None</option>
+    <option value="weights">Weights</option>
+    <option value="yogamat">Yoga Mat</option>
+  </select><br><br>
 
-      <label>Location:</label>
-      <select id="location">
-        <option value="indoor">Indoor</option>
-        <option value="outdoor">Outdoor</option>
-      </select><br><br>
+  <label>Location:</label>
+  <select id="location">
+    <option value="indoor">Indoor</option>
+    <option value="outdoor">Outdoor</option>
+  </select><br><br>
 
-      <button type="submit">Generate Workout</button>
-    </form>
+  <button type="submit">Generate Workout</button>
+</form>
 
-    <h2>Results</h2>
+  <h2>Results</h2>
+  <ul id="results"></ul>
 
-    <h2>Weekly Summary</h2>
+  <h2>Weekly Summary</h2>
+  <p id="weeklySummary"></p>
 
-    <h2>Set Weekly Goal (minutes)</h2>
-    <input type="number" id="goalInput">
-    <button id="setGoal">Set Goal</button>
+  <h2>Set Weekly Goal (minutes)</h2>
+  <input type="number" id="goalInput">
+  <button id="setGoal">Set Goal</button>
+  <p id="goalStatus"></p>
 
-    <script src="script.js"></script>
-    </body>
-    </html>
+  <script src="script.js"></script>
+  </body>
+  </html>

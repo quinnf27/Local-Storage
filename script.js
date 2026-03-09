@@ -11,10 +11,10 @@ let exercises = [
         { name: "Sit-ups", time: 20, intensity: "high", body: "core", equipment: "yoga mat", location: "indoor", calories: }
     ];
 
-    let completedWorkouts = JSON.parse(localStorage.getItem("workouts"))
+    let completedWorkouts = JSON.parse(localStorage.getItem("workouts")) || [];
     let weeklyGoal = localStorage.getItem("goal") || 0;
 
-    document.getElementById("workoutForm").addEventListener("submit", function(e)){
+    document.getElementById("workoutForm").addEventListener("submit", function(e){
         e.preventDefault();
 
         let userTime = parseInt(document.getElementById("time").value);
@@ -23,7 +23,7 @@ let exercises = [
         let userEquipment = document.getElementById("equipment").value;
         let userLocation = document.getElementById("location").value;
 
-        let matches = exercises.map(exercise =>{
+        let matches = exercises.map(exercise => {
             let score = 0;
 
             if(exercise.time <= userTime) score++;
@@ -36,7 +36,7 @@ let exercises = [
         });
 
         function displayResults(list){
-            let results = document.getElementById("results";
+            let results = document.getElementById("results");
             results.innerHTML = "";
 
 
@@ -54,7 +54,6 @@ let exercises = [
                 localStorage.setItem("goal", weeklyGoal);
                 updateWeeklySummary();
             });
-        });
 
         updateWeeklySummary();
 
