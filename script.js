@@ -1,14 +1,14 @@
 let exercises = [
-        { name: "Squats", time: 10, intensity: "medium", body: "legs", equipment: "none", location: "indoor", calories: },
-        { name: "Running", time: 60, intensity: "high", body: "legs", equipment: "none", location: "outdoor", calories: },
-        { name: "Lunges", time: 10, intensity: "medium", body: "legs", equipment: "none", location: "indoor", calories: },
-        { name: "Calf Raises", time: 5, intensity: "low", body: "legs", equipment: "none", location: "indoor", calories: },
-        { name: "Jump Squats", time: 10, intensity: "high", body: "legs", equipment: "none", location: "indoor", calories: },
-        { name: "Jumping Jacks", time: 10, intensity: "low", body: "core", equipment: "none", location: "indoor", calories: },
-        { name: "Hike", time: 40, intensity: "medium", body: "legs", equipment: "none", location: "outdoor", calories: },
-        { name: "Bicep Curls", time: 20, intensity: "medium", body: "arms", equipment: "weights", location: "indoor", calories: },
-        { name: "Plank", time: 5, intensity: "high", body: "arms", equipment: "yoga mat", location: "indoor", calories: },
-        { name: "Sit-ups", time: 20, intensity: "high", body: "core", equipment: "yoga mat", location: "indoor", calories: }
+        { name: "Squats", time: 10, intensity: "medium", body: "legs", equipment: "none", location: "indoor", calories: 80},
+        { name: "Running", time: 60, intensity: "high", body: "legs", equipment: "none", location: "outdoor", calories: 700},
+        { name: "Lunges", time: 10, intensity: "medium", body: "legs", equipment: "none", location: "indoor", calories: 50},
+        { name: "Calf Raises", time: 5, intensity: "low", body: "legs", equipment: "none", location: "indoor", calories: 15},
+        { name: "Jump Squats", time: 10, intensity: "high", body: "legs", equipment: "none", location: "indoor", calories: 110},
+        { name: "Jumping Jacks", time: 5, intensity: "low", body: "core", equipment: "none", location: "indoor", calories: 60},
+        { name: "Hike", time: 40, intensity: "medium", body: "legs", equipment: "none", location: "outdoor", calories: 300},
+        { name: "Bicep Curls", time: 20, intensity: "medium", body: "arms", equipment: "weights", location: "indoor", calories: 80},
+        { name: "Plank", time: 1, intensity: "high", body: "arms", equipment: "yoga mat", location: "indoor", calories: 5},
+        { name: "Sit-ups", time: 20, intensity: "high", body: "core", equipment: "yoga mat", location: "indoor", calories: 90}
     ];
 
     let completedWorkouts = JSON.parse(localStorage.getItem("workouts")) || [];
