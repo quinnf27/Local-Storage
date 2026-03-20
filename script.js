@@ -11,11 +11,18 @@ let exercises = [
         { name: "Sit-ups", time: 20, intensity: "high", body: "core", equipment: "yoga mat", location: "indoor", calories: 90}
     ];
 
-    let completedWorkouts = JSON.parse(localStorage.getItem("workouts")) || [];
-    let weeklyGoal = localStorage.getItem("goal") || 0;
+    let totalMinutes = localStorage.getItem("total");
+    if(totalMinutes === null) {
+        totalMinutes = 0;
+    } else {
+        totalMinutes = parseInt(totalMinutes);
+    }
 
-    document.getElementById("workoutForm").addEventListener("submit", function(e){
-        e.preventDefault();
+    document.getElementById("total").textContent = totalMinutes;
+    
+    document.getElementById("submit").addEventListener("click", function(e) {
+ 
+        
 
         let userTime = parseInt(document.getElementById("time").value);
         let userIntensity = document.getElementById("intensity").value;
@@ -23,50 +30,63 @@ let exercises = [
         let userEquipment = document.getElementById("equipment").value;
         let userLocation = document.getElementById("location").value;
 
-        let matches = exercises.map(exercise => {
+
+
+        for(let i = 0; i < exercises.length; i++){
+            let ex = exercises[i];
             let score = 0;
 
-            if(exercise.time <= userTime) score++;
-            if(exercise.intensity === userIntensity) score++;
-            if(exercise.body === userBody) score++;
-            if(exercise.equipment === userEquipment) score++;
-            if(exercise.location === userLocation) score++;
-            
-            return {exercise, score};
-        });
+            if(ex.time <= userTime) score++;
+            if(ex.intensity === userIntensity) score++;
+            if(ex.body === userBody) score++;
+            if(ex.equipment === userEquipment) score++;
+            if(ex.location === userLocation) score++;
 
-        function displayResults(list){
-            let results = document.getElementById("results");
-            results.innerHTML = "";
+            ex.score = score;
+            exercises[i] = ex;
+        }
 
+        display();
+    });
 
-            )
-        });
+        function display(){
 
-        function updateWeeklySummary(){
-            let totalMinutes = completedWorkouts
-            document.getElementById("weeklySummary")
+            //sort exercises by score
+            exercises.sort(compare);
 
-            document.getElementById("goalStatus")
+            let list = document.getElementById("results");
+            list.innerHTML = "";
 
-            document.getElementById("setGoal").addEventListener("click", function() {
-                weeklyGoal = parseInt(document.getElementById("goalInput").value);
-                localStorage.setItem("goal", weeklyGoal);
-                updateWeeklySummary();
-            });
+            for(let i=0; i<exercises.length; i++){
+                let item = document.createElement("lists");
 
-        updateWeeklySummary();
+                item.innerHTML = exercises[i].name + " (score: " + exercises[i].score + ")<br>";
 
-    }
+                item.onclick = function(){
+                    totalMinutes += exercises[i].exercise.time;
+                    localStorage.setItem("total", totalMinutes);
+                    document.getElementById("total").textContent = totalMinutes;
+                };
+                list.appendChild(item);
+            }
+        }
 
-/*
+        function compare(a,b){
+            if (a.score < b.score) {
+            return -1;
+        }
+            if (a.score > b.score) {
+            return 1;
+        }
+        return 0;
+        }
 
-1. make your exercise class with the properties in your wireframe
-2. create some exercises using the class
-3. create the html input form, like your wireframe
-4. build the output table that shows on a search
+// 1. make your exercise class with the properties in your wireframe
+// 2. create some exercises using the class
+// 3. create the html input form, like your wireframe
+// 4. build the output table that shows on a search
 
-Can the user enter a search and get the right exercises displayed on the page?
+// Can the user enter a search and get the right exercises displayed on the page?
 
-*/
+// */
 
