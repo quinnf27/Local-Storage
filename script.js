@@ -80,13 +80,3 @@ let exercises = [
         }
         return 0;
         }
-
-// 1. make your exercise class with the properties in your wireframe
-// 2. create some exercises using the class
-// 3. create the html input form, like your wireframe
-// 4. build the output table that shows on a search
-
-// Can the user enter a search and get the right exercises displayed on the page?
-
-// */
-
