@@ -18,47 +18,15 @@ let exercises = [
         totalMinutes = parseInt(totalMinutes);
     }
 
-    let goal = localStorage.getItem("goal");
-
-    if (goal === null){
-        goal = 0;
-    } else {
-        goal = parseInt(goal);
-    }
-
-    document.getElementById("setGoal").addEventListener("click", function(){
-        goal = parseInt(document.getElementById("goalInput").value);
-
-        localStorage.setItem("goal", goal);
-
-        updateGoalStatus();
-    })
-
-    function updateGoalStatus() {
-        let message = "";
-
-        if(goal > 0){
-            if(totalMinutes >= goal){
-                message = "Goal reached!";
-            } else {
-                message = "Progress: " + totalMinutes + " / " + goal + " minutes";
-            }
-        }
-        document.getElementById("goalStatus").textContent = message;
-    }
-
     document.getElementById("total").textContent = totalMinutes;
     
     document.getElementById("submit").addEventListener("click", function(e) {
- 
-        
 
         let userTime = parseInt(document.getElementById("time").value);
         let userIntensity = document.getElementById("intensity").value;
         let userBody = document.getElementById("body").value;
         let userEquipment = document.getElementById("equipment").value;
         let userLocation = document.getElementById("location").value;
-
 
         for(let i = 0; i < exercises.length; i++){
             let ex = exercises[i];
@@ -79,7 +47,6 @@ let exercises = [
 
         function display(){
 
-            //sort exercises by score
             exercises.sort(compare);
 
             let list = document.getElementById("results");
@@ -91,12 +58,6 @@ let exercises = [
                 o += "<td><input value='" + exercises[i].time + "' type='checkbox' onclick='addMins(this)'></td>";
                 o += "<td>" + exercises[i].name + " (score: " + exercises[i].score + ")</td>";
                 o += "</tr>";
-
-                // item.onclick = function(){
-                //     totalMinutes += exercises[i].exercise.time;
-                //     localStorage.setItem("total", totalMinutes);
-                //     document.getElementById("total").textContent = totalMinutes;
-                // };
 
                 list.innerHTML = o;
             }
@@ -112,7 +73,6 @@ let exercises = [
         return 0;
         }
 
-
 function addMins(checkbox){
     console.log(checkbox.checked)
     let total = parseInt(document.getElementById("total").innerHTML);
@@ -124,5 +84,3 @@ function addMins(checkbox){
     }
     
 }
-
-        updateGoalStatus();
