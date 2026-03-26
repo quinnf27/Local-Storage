@@ -45,29 +45,29 @@ let exercises = [
         display();
     });
 
-        function display(){
+    function display(){
 
-            exercises.sort(compare);
+        exercises.sort(compare);
 
-            let list = document.getElementById("results");
-            let o = "";
+        let list = document.getElementById("results");
+        let o = "";
 
-            for(let i=0; i<exercises.length; i++){
+        for(let i=0; i<exercises.length; i++){
 
-                o += "<tr>";
-                o += "<td><input value='" + exercises[i].time + "' type='checkbox' onclick='addMins(this)'></td>";
-                o += "<td>" + exercises[i].name + " (score: " + exercises[i].score + ")</td>";
-                o += "</tr>";
+            o += "<tr>";
+            o += "<td><input value='" + exercises[i].time + "' type='checkbox' onclick='addMins(this)'></td>";
+            o += "<td>" + exercises[i].name + " (score: " + exercises[i].score + ")</td>";
+            o += "</tr>";
 
-                list.innerHTML = o;
-            }
+            list.innerHTML = o;
         }
+    }
 
-        function compare(a, b){
-            if (a.score < b.score) {
+    function compare(a, b){
+        if (a.score < b.score) {
             return -1;
         }
-            if (a.score > b.score) {
+        if (a.score > b.score) {
             return 1;
         }
         return 0;
